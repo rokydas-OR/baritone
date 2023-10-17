@@ -15,6 +15,7 @@
  * along with Baritone.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+// its a package name
 package baritone.api.cache;
 
 import net.minecraft.block.state.IBlockState;
