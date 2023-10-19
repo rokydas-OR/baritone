@@ -48,7 +48,15 @@ public abstract class MixinNetworkManager {
             at = @At("HEAD")
     )
     private void preDispatchPacket(Packet<?> inPacket, final GenericFutureListener<? extends Future<? super Void >>[] futureListeners, CallbackInfo ci) {
-        Baritone.INSTANCE.getGameEventHandler().onSendPacket(new PacketEvent(EventState.PRE, inPacket));
+        
+		/* ********OpenRefactory Warning********
+		 Possible null pointer dereference!
+		 Path: 
+			File: MixinNetworkManager.java, Line: 51
+				Baritone.INSTANCE.getGameEventHandler().onSendPacket(new PacketEvent(EventState.PRE,inPacket));
+				Method getGameEventHandler may return null and is referenced in method invocation.
+		*/
+		Baritone.INSTANCE.getGameEventHandler().onSendPacket(new PacketEvent(EventState.PRE, inPacket));
     }
 
     @Inject(
