@@ -136,7 +136,19 @@ public final class CachedWorld implements IBlockTypeAccess {
     }
 
     public final void save() {
-        if (!Baritone.settings().chunkCaching.get()) {
+        
+		/* ********OpenRefactory Warning********
+		 Possible null pointer dereference!
+		 Path: 
+			File: CachedWorld.java, Line: 76
+				save();
+				A local variable will be null based on information passed through this method call.
+			File: CachedWorld.java, Line: 139
+				Baritone.settings().chunkCaching
+				Method settings may return null and is referenced in field access.
+				The expression is enclosed inside an If statement.
+		*/
+		if (!Baritone.settings().chunkCaching.get()) {
             System.out.println("Not saving to disk; chunk caching is disabled.");
             return;
         }
