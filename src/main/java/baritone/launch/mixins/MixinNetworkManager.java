@@ -75,7 +75,15 @@ public abstract class MixinNetworkManager {
             )
     )
     private void preProcessPacket(ChannelHandlerContext context, Packet<?> packet, CallbackInfo ci) {
-        Baritone.INSTANCE.getGameEventHandler().onReceivePacket(new PacketEvent(EventState.PRE, packet));
+        
+		/* ********OpenRefactory Warning********
+		 Possible null pointer dereference!
+		 Path: 
+			File: MixinNetworkManager.java, Line: 70
+				Baritone.INSTANCE.getGameEventHandler().onReceivePacket(new PacketEvent(EventState.PRE,packet));
+				Method getGameEventHandler may return null and is referenced in method invocation.
+		*/
+		Baritone.INSTANCE.getGameEventHandler().onReceivePacket(new PacketEvent(EventState.PRE, packet));
     }
 
     @Inject(
